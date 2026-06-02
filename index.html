@@ -306,25 +306,17 @@ let cur = 0;
 function carRender() {
   const track = document.getElementById('carTrack');
   const dots = document.getElementById('carDots');
-  track.innerHTML = IMAGES.map(im => `<img src="${im.src}" />`).join('');
-  dots.innerHTML = IMAGES.map((_, i) => `<span class="car-dot" onclick="carGo(${i})"></span>`).join('');
-  carGo(0);
-}" />`).join('');
-  dots.innerHTML = IMAGES.map((_, i) => `<span class="car-dot${i===0?' active':''}" onclick="carGo(${i})"></span>`).join('');
+  track.innerHTML = IMAGES.map(im => '<img src="' + im.src + '" />').join('');
+  dots.innerHTML = IMAGES.map((_, i) => '<span class="car-dot" onclick="carGo(' + i + ')"></span>').join('');
   carGo(0);
 }
 function carGo(n) {
   cur = (n + IMAGES.length) % IMAGES.length;
-  document.getElementById('carTrack').style.transform = `translateX(${-cur * 100}%)`;
-  document.getElementById('carCaption').textContent = IMAGES[cur].caption;
-  document.querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-}%)`;
-  document.getElementById('carCaption').textContent = IMAGES[cur].caption;
+  document.getElementById('carTrack').style.transform = 'translateX(' + (-cur * 100) + '%)';
   document.querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
 }
 function carMove(dir) { carGo(cur + dir); }
 document.addEventListener('DOMContentLoaded', carRender);
 </script>
-
 </body>
 </html>
